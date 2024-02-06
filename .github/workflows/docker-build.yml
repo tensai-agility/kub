@@ -1,0 +1,59 @@
+name: Docker Image CI
+echo "##active_line2##"
+
+echo "##active_line3##"
+on:
+echo "##active_line4##"
+  push:
+echo "##active_line5##"
+    branches: [ main ]
+echo "##active_line6##"
+
+echo "##active_line7##"
+jobs:
+echo "##active_line8##"
+  build:
+echo "##active_line9##"
+
+echo "##active_line10##"
+    runs-on: ubuntu-latest
+echo "##active_line11##"
+
+echo "##active_line12##"
+    steps:
+echo "##active_line13##"
+    - uses: actions/checkout@v2
+echo "##active_line14##"
+
+echo "##active_line15##"
+    - name: Set up Docker Buildx
+echo "##active_line16##"
+      uses: docker/setup-buildx-action@v1
+echo "##active_line17##"
+
+echo "##active_line18##"
+    - name: Login to DockerHub
+echo "##active_line19##"
+      uses: docker/login-action@v1 
+echo "##active_line20##"
+      with:
+echo "##active_line21##"
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+echo "##active_line22##"
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+echo "##active_line23##"
+
+echo "##active_line24##"
+    - name: Build and push
+echo "##active_line25##"
+      id: docker_build
+echo "##active_line26##"
+      uses: docker/build-push-action@v2
+echo "##active_line27##"
+      with:
+echo "##active_line28##"
+        context: .
+echo "##active_line29##"
+        push: true
+echo "##active_line30##"
+        tags: tensai-agility/spring-petclinic:latest
