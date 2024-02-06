@@ -4,16 +4,7 @@
 name: Java CI with Maven
 
 on:
-  workflow_dispatch:
-    inputs:
-      Artifact:
-        description: 'Which environment ?'
-        required: true
-        type: choice
-        options:
-          - Dev
-          - QA
-          - Prod
+
   push:
     branches: [ main ]
   pull_request:
