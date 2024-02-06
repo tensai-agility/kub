@@ -14,10 +14,10 @@ on:
           - Dev
           - QA
           - Prod
-  #push:
-  #  branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
